@@ -3,13 +3,12 @@ certifi==2023.7.22
 distlib==0.3.7
 Django==4.2.5
 django-cors-headers==4.2.0
-django-dotenv==1.4.2
 django-extensions==3.2.3
 djangorestframework==3.14.0
 filelock==3.12.4
-pipenv==2023.9.8
 platformdirs==3.10.0
 psycopg2-binary==2.9.7
+python-decouple==3.8
 pytz==2023.3.post1
 sqlparse==0.4.4
 virtualenv==20.24.5
