@@ -8,6 +8,35 @@ from django.db.models import Q
 from .models import Task, Photo
 from .forms import TaskForm, PhotoForm
 
+from rest_framework import viewsets
+from rest_framework import generics, status
+from rest_framework.response import Response
+from .models import Task
+from .serializers import TaskSerializer
+
+
+class TaskListAPIView(generics.ListCreateAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class TaskDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+
+
+class TaskViewSet(viewsets.ModelViewSet):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+
 
 class TaskListView(ListView):
     model = Task
@@ -61,7 +90,6 @@ class TaskDetailView(DetailView):
     context_object_name = 'task'
 
 
-@method_decorator(login_required, name='dispatch')
 class TaskCreateView(CreateView):
     model = Task
     template_name = 'tasks/task_form.html'
@@ -73,7 +101,6 @@ class TaskCreateView(CreateView):
         return super().form_valid(form)
 
 
-@method_decorator(login_required, name='dispatch')
 class TaskUpdateView(UpdateView):
     model = Task
     template_name = 'tasks/task_form.html'
@@ -81,14 +108,12 @@ class TaskUpdateView(UpdateView):
     success_url = reverse_lazy('task_list')
 
 
-@method_decorator(login_required, name='dispatch')
 class TaskDeleteView(DeleteView):
     model = Task
     template_name = 'tasks/task_confirm_delete.html'
     success_url = reverse_lazy('task_list')
 
 
-@login_required
 def add_photo_to_task(request, pk):
     task = get_object_or_404(Task, pk=pk)
     if request.method == 'POST':
@@ -104,7 +129,6 @@ def add_photo_to_task(request, pk):
     return render(request, 'tasks/add_photo_to_task.html', {'form': form})
 
 
-@login_required
 def delete_photo(request, pk):
     photo = get_object_or_404(Photo, pk=pk)
     task_pk = photo.task.pk

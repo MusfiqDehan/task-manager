@@ -1,5 +1,8 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 class Task(models.Model):
@@ -15,6 +18,7 @@ class Task(models.Model):
     due_date = models.DateTimeField()
     priority = models.CharField(max_length=10, choices=PRIORITY_CHOICES)
     is_complete = models.BooleanField(default=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return self.title

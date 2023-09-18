@@ -1,5 +1,9 @@
-from django.urls import path
-from .views import TaskListView, TaskDetailView, TaskCreateView, TaskUpdateView, TaskDeleteView, add_photo_to_task, delete_photo
+from django.urls import path, include
+from rest_framework import routers
+from .views import TaskListView, TaskDetailView, TaskCreateView, TaskUpdateView, TaskDeleteView, add_photo_to_task, delete_photo, TaskViewSet
+
+router = routers.DefaultRouter()
+router.register(r'tasks', TaskViewSet)
 
 urlpatterns = [
     path('', TaskListView.as_view(), name='task_list'),
@@ -9,4 +13,5 @@ urlpatterns = [
     path('<int:pk>/delete/', TaskDeleteView.as_view(), name='task_delete'),
     path('<int:pk>/add_photo/', add_photo_to_task, name='add_photo_to_task'),
     path('delete_photo/<int:pk>/', delete_photo, name='delete_photo'),
+    path('api/', include(router.urls)),
 ]
