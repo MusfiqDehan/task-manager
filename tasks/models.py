@@ -30,3 +30,7 @@ class Photo(models.Model):
 
     def __str__(self):
         return self.image.name
+
+    @property
+    def image_url(self):
+        return self.image.url
