@@ -21,3 +21,12 @@ class Task(models.Model):
 
     def get_absolute_url(self):
         return reverse('task_detail', args=[str(self.id)])
+
+
+class Photo(models.Model):
+    task = models.ForeignKey(
+        Task, on_delete=models.CASCADE, related_name='photos')
+    image = models.ImageField(upload_to='photos/')
+
+    def __str__(self):
+        return self.image.name
