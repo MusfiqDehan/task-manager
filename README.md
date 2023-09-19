@@ -9,6 +9,8 @@ A Python-Django Task Manager Project with REST API
 
 https://github.com/MusfiqDehan/task-manager/assets/47440165/7219a3f5-e809-4182-8478-ec85f105a210
 
+For more detail overview visit this link: https://youtu.be/4XTaPGTVto0
+
 </div>
 
 ## Table of Contents
@@ -19,15 +21,6 @@ https://github.com/MusfiqDehan/task-manager/assets/47440165/7219a3f5-e809-4182-8
 -   [How to Run Locally](#how-to-run-locally)
     -   [From GitHub](#from-github)
 -   [API Details](#api-details)
-
-## Easy Login Info
-
-To login as a user/admin, you can use the following credentials:
-
--   Username: `admin`
--   Password: `admin`
-
-[⬆️**Go to Table of Contents**](#table-of-contents)
 
 ## Technology Used
 
