@@ -1,6 +1,9 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
+from django.core.files import File
+from PIL import Image
+import os
 
 User = get_user_model()
 
