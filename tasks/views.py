@@ -1,18 +1,17 @@
+from django.db.models import F
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
-from django.db.models import Q
+
+from rest_framework import generics, status, viewsets
+from rest_framework.response import Response
+
+from .serializers import TaskSerializer
 from .models import Task, Photo
 from .forms import TaskForm, PhotoForm
-
-from rest_framework import viewsets
-from rest_framework import generics, status
-from rest_framework.response import Response
-from .models import Task
-from .serializers import TaskSerializer
 
 
 class TaskListAPIView(generics.ListCreateAPIView):
@@ -42,7 +41,6 @@ class TaskListView(ListView):
     model = Task
     template_name = 'tasks/task_list.html'
     context_object_name = 'tasks'
-    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -50,7 +48,7 @@ class TaskListView(ListView):
         return context
 
     def get_queryset(self):
-        queryset = Task.objects.all()
+        queryset = Task.objects.all().order_by(F('priority').desc())
         query = self.request.GET.get('q')
         if query:
             queryset = queryset.filter(
@@ -90,7 +88,7 @@ class TaskDetailView(DetailView):
     context_object_name = 'task'
 
 
-class TaskCreateView(CreateView):
+class TaskCreateView(LoginRequiredMixin, CreateView):
     model = Task
     template_name = 'tasks/task_form.html'
     form_class = TaskForm
