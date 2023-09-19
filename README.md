@@ -68,17 +68,17 @@ cd task-manager
 python3 -m venv venv
 ```
 
-````
-- Activate the virtual environment
+-   Activate the virtual environment
+
 ```bash
 source venv/bin/activate
-````
+```
 
-````
-- Install the dependencies
+-   Install the dependencies
+
 ```bash
 pip3 install -r requirements.txt
-````
+```
 
 -   Run the server
 
