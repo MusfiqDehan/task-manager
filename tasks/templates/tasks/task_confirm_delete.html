@@ -1,11 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
 
-{% block content %}
-
-<form method="post">
+<form class="form-control" method="post">
     {% csrf_token %}
     <p>Are you sure you want to delete "{{ task }}"?</p>
-    <input type="submit" value="Confirm">
+    <input class="btn btn-primary" type="submit" value="Confirm" />
 </form>
 
 {% endblock %}
