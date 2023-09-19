@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Task List</h1>
+
+<a href="{% url 'task_create' %}" class="btn btn-primary">Add Task</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>
+                <a class="inline" href="?order_by=title">Name</a>
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search tasks"
+                />
+            </th>
+            <th>Created</th>
+            <th>Due</th>
+            <th>Priority</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>
+                {% if task.photos.all %}
+                <img src="{{ task.photos.all.first.image.url }}" width="50" />
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'task_detail' task.pk %}">{{ task.title }}</a>
+            </td>
+            <td>{{ task.creation_date }}</td>
+            <td>{{ task.due_date }}</td>
+            <td>{{ task.priority }}</td>
+            <td>
+                {% if task.is_complete %}Complete{% else %}Incomplete{% endif %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No tasks found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
