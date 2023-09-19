@@ -13,5 +13,5 @@ urlpatterns = [
     path('<int:pk>/delete/', TaskDeleteView.as_view(), name='task_delete'),
     path('<int:pk>/add_photo/', add_photo_to_task, name='add_photo_to_task'),
     path('delete_photo/<int:pk>/', delete_photo, name='delete_photo'),
-    path('api/', include(router.urls)),
+    path('api/v1/', include(router.urls)),
 ]
