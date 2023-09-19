@@ -2,7 +2,11 @@
 
 <h1 class="text-center">Add Photo to Task</h1>
 
-<form class="form-control" method="post" enctype="multipart/form-data">
+<form
+    class="form-control text-center"
+    method="post"
+    enctype="multipart/form-data"
+>
     {% csrf_token %} {{ form.as_p }}
     <input
         class="form-control btn btn-primary"

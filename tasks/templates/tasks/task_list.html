@@ -1,8 +1,10 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Task List</h1>
+<div class="text-center">
+    <h1>Task List</h1>
 
-<a href="{% url 'task_create' %}" class="btn btn-primary">Add Task</a>
+    <a href="{% url 'task_create' %}" class="btn btn-primary">Add Task</a>
+</div>
 
 <table class="table">
     <thead>

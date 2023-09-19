@@ -1,8 +1,10 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>{% if form.instance.pk %}Edit{% else %}Create{% endif %} Task</h1>
+<h1 class="text-center">
+    {% if form.instance.pk %}Edit{% else %}Create{% endif %} Task
+</h1>
 
-<form class="form-control" method="post">
+<form class="form-control text-center" method="post">
     {% csrf_token %} {{ form.as_p }}
     <input class="form-control btn btn-primary" type="submit" value="Submit" />
 </form>

@@ -1,36 +1,46 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>{{ task.title }}</h1>
+<div class="form-control text-center">
+    <h1>{{ task.title }}</h1>
 
-<p><strong>Description:</strong> {{ task.description }}</p>
+    <p><strong>Description:</strong> {{ task.description }}</p>
 
-<p><strong>Created:</strong> {{ task.creation_date }}</p>
+    <p><strong>Created:</strong> {{ task.creation_date }}</p>
 
-<p><strong>Due:</strong> {{ task.due_date }}</p>
+    <p><strong>Due:</strong> {{ task.due_date }}</p>
 
-<p><strong>Priority:</strong> {{ task.get_priority_display }}</p>
+    <p><strong>Priority:</strong> {{ task.get_priority_display }}</p>
 
-<p>
-    <strong>Status:</strong>
-    {% if task.is_complete %} Completed {% else %} Incomplete {% endif %}
-</p>
+    <p>
+        <strong>Status:</strong>
+        {% if task.is_complete %} Completed {% else %} Incomplete {% endif %}
+    </p>
 
-<a class="btn btn-primary" href="{% url 'task_update' task.pk %}">Edit Task</a>
+    <a class="btn btn-primary" href="{% url 'task_update' task.pk %}"
+        >Edit Task</a
+    >
 
-<a class="btn btn-success" href="{% url 'add_photo_to_task' task.pk %}"
-    >Add Photo</a
->
+    <a class="btn btn-success" href="{% url 'add_photo_to_task' task.pk %}"
+        >Add Photo</a
+    >
 
-{% for photo in task.photos.all %}
-<img class="" src="{{ photo.image.url }}" alt="{{ photo.name }}" />
+    <br />
+    <br />
+    {% for photo in task.photos.all %}
+    <img class="" src="{{ photo.image.url }}" alt="{{ photo.name }}" />
 
-<a class="btn btn-warning" href="{% url 'delete_photo' photo.pk %}"
-    >Delete Photo</a
->
-{% empty %}
-<p>No photos for this task yet.</p>
-{% endfor %}
+    <a class="btn btn-warning" href="{% url 'delete_photo' photo.pk %}"
+        >Delete Photo</a
+    >
+    {% empty %}
+    <p>No photos for this task yet.</p>
+    {% endfor %}
 
-<a class="btn btn-danger" href="{% url 'task_delete' task.pk %}">Delete Task</a>
+    <br />
+    <br />
+    <a class="btn btn-danger" href="{% url 'task_delete' task.pk %}"
+        >Delete Task</a
+    >
+</div>
 
 {% endblock %}
