@@ -19,7 +19,10 @@ For more detail overview visit this link: https://youtu.be/4XTaPGTVto0
 -   [Technology Used](#technology-used)
 -   [Added Features](#added-features)
 -   [How to Run Locally](#how-to-run-locally)
-    -   [From GitHub](#from-github)
+    -   [Clone from GitHub](#clone-from-github)
+    -   [Setup PostgreSQL Database](#setup-postgresql-database)
+    -   [Import Data from db.json](#import-data-from-dbjson)
+    -   [Admin Panel](#admin-panel)
 -   [API Details](#api-details)
 
 ## Technology Used
@@ -37,7 +40,7 @@ For more detail overview visit this link: https://youtu.be/4XTaPGTVto0
 
 ## How to Run Locally
 
-### From GitHub
+### Clone from GitHub
 
 -   Install Python3
 -   Install pip
@@ -89,6 +92,8 @@ python manage.py runserver
 ```bash
 deactivate
 ```
+
+[⬆️**Go to Table of Contents**](#table-of-contents)
 
 ### Setup PostgreSQL Database
 
@@ -146,6 +151,8 @@ DB_PORT=5432
 
 See the `.env.example` file for reference.
 
+[⬆️**Go to Table of Contents**](#table-of-contents)
+
 ### Import Data from db.json
 
 -   You will find a file named `db.json` in the root directory
@@ -165,6 +172,8 @@ python manage.py make migrations
 ```bash
 python manage.py migrate
 ```
+
+[⬆️**Go to Table of Contents**](#table-of-contents)
 
 ### Admin Panel
 
