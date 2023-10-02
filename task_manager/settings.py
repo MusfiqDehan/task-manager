@@ -1,11 +1,14 @@
+import os
 from pathlib import Path
 from decouple import config
 import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=True, cast=bool)
+# SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = "django-secret-key-lol-123"
+# DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # Application definition
@@ -64,7 +67,7 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse(config('DATABASE_URL'))
+    'default': dj_database_url.parse("postgres://mrdehan:RzpLZOT5hr2LCUkwlV2BZ4MxwLRQO6eS@dpg-ck4kvrc2kpls73ee98o0-a.singapore-postgres.render.com/tasksdb_26yf")
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -94,8 +97,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# STATICFILES_DIRS = [BASE_DIR / 'static']
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # Media files (Images)
 MEDIA_URL = '/media/'
