@@ -29,7 +29,8 @@ For more detail overview visit this link: https://youtu.be/4XTaPGTVto0
 
 -   **Frontend:** HTML5, CSS3, Bootstrap5, JavaScript
 -   **Backend:** Python=3.11.4, Django=4.2.5
--   **Database:** PostgreSQL
+-   **Database:** PostgreSQL, (Hosted on Render for Production)
+-   **Static and Media Upload:** AWS S3 Bucket using Cloudflare R2
 -   **API:** Django-REST-Framework
 -   **Version Control:** Git, GitHub
 -   **Editor:** VS Code
