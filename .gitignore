@@ -3,6 +3,8 @@
 static
 staticfiles
 media
+build_files.sh
+vercel.json
 
 # Byte-compiled / optimized / DLL files
 .vscode
