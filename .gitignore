@@ -1,7 +1,7 @@
 # vscode settings
 .vscode
 static
-staticfiles
+# staticfiles
 media
 
 # Byte-compiled / optimized / DLL files
