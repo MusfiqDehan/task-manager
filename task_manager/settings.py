@@ -88,12 +88,19 @@ STORAGES = {
 
 AWS_STORAGE_BUCKET_NAME = os.getenv(
     'AWS_STORAGE_BUCKET_NAME', default=None)
+
 # AWS_LOCATION = "a_folder_inside_the_bucket"
+
 AWS_S3_ACCESS_KEY_ID = os.getenv('AWS_S3_ACCESS_KEY_ID', default=None)
+
 AWS_S3_SECRET_ACCESS_KEY = os.getenv('AWS_S3_SECRET_ACCESS_KEY', default=None)
+
 AWS_S3_CUSTOM_DOMAIN = os.getenv('AWS_S3_CUSTOM_DOMAIN', default=None)
+
 AWS_S3_ENDPOINT_URL = os.getenv('AWS_S3_ENDPOINT_URL', default=None)
+
 AWS_S3_FILE_OVERWRITE = os.getenv('AWS_S3_FILE_OVERWRITE', default=True)
+
 # AWS_QUERYSTRING_AUTH=os.getenv('AWS_QUERYSTRING_AUTH', default=True)
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -122,11 +129,11 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = 'static/'
+# STATIC_URL = 'static/'
 # STATICFILES_DIRS = [BASE_DIR / 'static']
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # Media files (Images)
 # MEDIA_URL = '/media/'
