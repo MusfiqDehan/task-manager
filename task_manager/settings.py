@@ -71,10 +71,7 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 
 # For production
 DATABASES = {
-    # 'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
-    'default': dj_database_url.parse(
-        'postgres://mrdehan:Di4zmeWvrovV6iMcCT8uGPvDtTH1Xrqk@dpg-costfkq1hbls73aqsnkg-a.singapore-postgres.render.com/taskdb_6xdx'
-    )
+    'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
 }
 
 STORAGES = {
