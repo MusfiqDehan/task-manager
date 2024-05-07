@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 DATABASES = {
     # 'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
     'default': dj_database_url.parse(
-        'postgresql://postgres:LOJSDQYcJhvISyKuyLAQzicfyecVOeVz@roundhouse.proxy.rlwy.net:20324/railway'
+        'postgresql://postgres:oqzbVOKNLsVqyzIvAxkWBATbDxKJfUbC@monorail.proxy.rlwy.net:52068/railway'
     )
 }
 
