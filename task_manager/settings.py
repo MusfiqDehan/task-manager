@@ -70,7 +70,6 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # }
 
 # For production
-
 DATABASES = {
     'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
 }
