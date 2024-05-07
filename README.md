@@ -167,7 +167,7 @@ python3 manage.py loaddata db.json
 -   Migrate Database
 
 ```bash
-python manage.py make migrations
+python manage.py makemigrations
 ```
 
 ```bash
