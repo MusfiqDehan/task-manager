@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY', default="dj-secret")
 
-DEBUG = os.getenv('DEBUG', default=False)
+DEBUG = os.getenv('DEBUG', default=None)
 
 ALLOWED_HOSTS = ['*']
 
@@ -99,7 +99,7 @@ AWS_S3_CUSTOM_DOMAIN = os.getenv('AWS_S3_CUSTOM_DOMAIN', default=None)
 
 AWS_S3_ENDPOINT_URL = os.getenv('AWS_S3_ENDPOINT_URL', default=None)
 
-AWS_S3_FILE_OVERWRITE = os.getenv('AWS_S3_FILE_OVERWRITE', default=True)
+AWS_S3_FILE_OVERWRITE = os.getenv('AWS_S3_FILE_OVERWRITE', default=None)
 
 # AWS_QUERYSTRING_AUTH=os.getenv('AWS_QUERYSTRING_AUTH', default=True)
 
