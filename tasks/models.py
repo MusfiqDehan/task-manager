@@ -1,12 +1,16 @@
+"""
+Model module for tasks app
+"""
+
 from typing import Any
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
-from django.core.files import File
-from PIL import Image
 from django.dispatch import receiver
 from django.db.models.signals import post_delete
 from django.conf import settings
+# from django.core.files import File
+# from PIL import Image
 import boto3
 from botocore.exceptions import ClientError
 
@@ -29,7 +33,7 @@ class Task(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
-        return self.title
+        return str(self.title)
 
     def get_absolute_url(self):
         return reverse('task_detail', args=[str(self.id)])
